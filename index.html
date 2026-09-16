@@ -1,0 +1,841 @@
+<!doctype html>
+<html lang="uk" style="">
+<head>
+    <title>Розклад</title>
+    <meta charset="utf-8">
+    <style>
+      .pairTab {
+        height: 100%;
+        width: 100%;
+        margin: 0px;
+        border-collapse: collapse
+      }
+
+      .pairRow {
+      }
+
+      .pairCell {
+        border-width: 1px;
+        border-style: solid;
+        border-right-color: #000000;
+        border-bottom-color: #000000;
+        height: 100%;
+      }
+
+      .pair {
+        border-width: 2px;
+        border-style: solid;
+        border-top-color: #000000;
+        border-left-color: #000000;
+        border-right-color: #000000;
+        border-bottom-color: #000000;
+        border-top-style: none;
+      }
+
+      .pair.dates {
+        border-bottom-style: dotted;
+      }
+
+      .pairS {
+        border-width: 2px;
+        border-style: solid;
+        border-top-color: #FFFFFF;
+        border-left-color: #FFFFFF;
+        border-right-color: #FFFFFF;
+        border-bottom-color: #FFFFFF;
+        width: 50%;
+
+      }
+
+      .row {
+        width: 100%;
+        height: 50%
+      }
+
+      .schedTab {
+        border-collapse: collapse;
+        border-width: 2px;
+        border-style: solid;
+        border-top-color: #000000;
+        border-left-color: #000000;
+        border-right-color: #000000;
+        border-bottom-color: #000000;
+      }
+
+      .innerTab {
+        border-collapse: collapse;
+        border-width: 0px;
+        border-style: solid;
+        width: 100%;
+        height: 100%;
+        cellSpacing: 0;
+        cellPadding: 0;
+      }
+
+      .not-mine {
+        /*background-color: #ffc107;*/
+        color: #818182;
+        background-color: #d6d8d9;
+      }
+
+      .week-filter {
+        display: inline-flex;
+        gap: 14px;
+        align-items: center;
+        margin-bottom: 12px;
+        padding: 8px 12px;
+        border: 1px solid #818182;
+      }
+
+      .week-filter legend {
+        padding: 0 4px;
+        font-weight: bold;
+      }
+
+      .week-filter label,
+      .week-filter input {
+        cursor: pointer;
+      }
+
+      @media print {
+        .no-print, .no-print * {
+          display: none !important;
+        }
+      }
+    </style>
+    <object class="chrome-extension://jffafkigfgmjafhpkoibhfefeaebmccg/"
+            style="display: none; visibility: hidden;"></object>
+</head>
+<body data-new-gr-c-s-check-loaded="14.1327.0" data-gr-ext-installed="" style="">
+
+<fieldset class="week-filter no-print">
+    <legend>Week</legend>
+    <label><input type="radio" name="week" value="all" checked> All</label>
+    <label><input type="radio" name="week" value="numerator"> Numerator</label>
+    <label><input type="radio" name="week" value="denominator"> Denominator</label>
+</fieldset>
+
+<table id="schedule" border="1" cellspacing="0" cellpadding="2" class="schedTab">
+    <tbody>
+    <tr>
+        <td rowspan="2" colspan="2">&nbsp;</td>
+        <td class="pair" align="center" colspan="3">КІм-25-1 <br>З 01.09.2026 по
+            20.12.2026
+        </td>
+        <td class="pair" align="center" colspan="3">КІм-25-2 <br>З 01.09.2026 по
+            20.12.2026
+        </td>
+    </tr>
+    <tr>
+        <td class="pair" align="center">а</td>
+        <td class="pair" align="center">к</td>
+        <td class="pair" align="center">б</td>
+        <td class="pair" align="center">а</td>
+        <td class="pair" align="center">б</td>
+        <td class="pair" align="center">к</td>
+    </tr>
+
+    <tr>
+        <td class="pair" rowspan="2"> Пн</td>
+        <td class="pair" rowspan="2">1</td>
+        <td class="pair" align="center" colspan="3" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td class="pair" align="center" colspan="3" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+    </tr>
+    <tr>
+        <td class="pair" align="center" colspan="3" rowspan="1">лекц. Теорія,
+            проєктування та моделювання спеціалізованих комп'ютерних систем 1-107
+            Нічепорук А.О.
+        </td>
+        <td class="pair" align="center" colspan="3" rowspan="1">лекц. Теорія,
+            проєктування та моделювання спеціалізованих комп'ютерних систем 1-107
+            Нічепорук А.О.
+        </td>
+    </tr>
+    <tr>
+        <td class="pair" rowspan="2"> Пн</td>
+        <td class="pair" rowspan="2">2</td>
+        <td class="pair" align="center" colspan="3" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">лаб. Напрямки досліджень і розвитку
+            комп'ютерної інженерії 1-206 Козельський О.В.
+        </td>
+        <td class="pair"
+            style="cellSpacing:0; cellPadding:0; border-bottom-color: #a1a1a1;"
+            align="center" colspan="3" rowspan="1" height="100%">
+            <table class="innerTab">
+                <tbody>
+                <tr>
+                    <td class="pairS" align="center"
+                        style="border-right-color: 000000">лаб. Напрямки досліджень і
+                        розвитку комп'ютерної інженерії 1-208 Лисенко С.М.
+                    </td>
+                    <td class="pairS" align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td class="pair" align="center" colspan="3" rowspan="1">лекц. Напрямки
+            досліджень і розвитку комп'ютерної інженерії 1-204 Лисенко С.М.
+        </td>
+        <td class="pair" align="center" colspan="3" rowspan="1">лекц. Напрямки
+            досліджень і розвитку комп'ютерної інженерії 1-204 Лисенко С.М.
+        </td>
+    </tr>
+    <tr>
+        <td class="pair" rowspan="2"> Пн</td>
+        <td class="pair" rowspan="2">3</td>
+        <td class="pair" align="center" colspan="3" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">лаб. Напрямки досліджень і розвитку
+            комп'ютерної інженерії 1-206 Козельський О.В.
+        </td>
+        <td class="pair"
+            style="cellSpacing:0; cellPadding:0; border-bottom-color: #a1a1a1;"
+            align="center" colspan="3" rowspan="1" height="100%">
+            <table class="innerTab">
+                <tbody>
+                <tr>
+                    <td class="pairS" align="center"
+                        style="border-right-color: 000000">лаб. Напрямки досліджень і
+                        розвитку комп'ютерної інженерії 1-208 Лисенко С.М.
+                    </td>
+                    <td class="pairS" align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td class="pair" align="center" colspan="3" rowspan="1">пр. Напрямки
+            досліджень і розвитку комп'ютерної інженерії 1-204 Лисенко С.М.
+        </td>
+        <td class="pair" align="center" colspan="3" rowspan="1">пр. Напрямки
+            досліджень і розвитку комп'ютерної інженерії 1-204 Лисенко С.М.
+        </td>
+    </tr>
+    <tr>
+        <td class="pair" rowspan="2"> Пн</td>
+        <td class="pair" rowspan="2">4</td>
+        <td class="pair" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">лекц. Big data analytics 1-107
+            Кисіль Т.М.
+        </td>
+        <td class="pair" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td class="pair" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td class="pair" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">лекц. Big data analytics 1-107
+            Кисіль Т.М.
+        </td>
+        <td class="pair not-mine" align="center" rowspan="2">лекц. Техн. блокчейн в ІТ 3-302
+            Пасічник О.А.
+        </td>
+        <td class="pair" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+    </tr>
+    <tr>
+        <td class="pair" align="center" rowspan="1">лаб. Big data analytics 1-106
+            Кисіль Т.М.
+        </td>
+        <td class="pair" align="center" rowspan="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td class="pair" align="center" rowspan="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td class="pair" align="center" rowspan="1">лаб. Big data analytics 1-106
+            Кисіль Т.М.
+        </td>
+        <td class="pair" align="center" rowspan="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="pair" rowspan="2"> Пн</td>
+        <td class="pair" rowspan="2">5</td>
+        <td class="pair" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">пр. Big data analytics 1-107 Кисіль
+            Т.М.
+        </td>
+        <td class="pair" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td class="pair" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td class="pair" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">пр. Big data analytics 1-107 Кисіль
+            Т.М.
+        </td>
+        <td class="pair" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td class="pair" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+    </tr>
+    <tr>
+        <td class="pair" align="center" rowspan="1">лаб. Big data analytics 1-106
+            Кисіль Т.М.
+        </td>
+        <td class="pair" align="center" rowspan="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td class="pair" align="center" rowspan="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td class="pair" align="center" rowspan="1">лаб. Big data analytics 1-106
+            Кисіль Т.М.
+        </td>
+        <td class="pair" align="center" rowspan="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td class="pair" align="center" rowspan="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr style="height:1px">
+        <td class="pair" style="height:1px; background-color: #000000;"
+            colspan="8"></td>
+    </tr>
+    <tr>
+        <td class="pair" rowspan="2"> Вт</td>
+        <td class="pair" rowspan="2">1</td>
+        <td class="pair" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td class="pair not-mine" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">лекц. АВД 1-101 Кисіль Т.М.
+        </td>
+        <td class="pair" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td class="pair" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td class="pair" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td class="pair not-mine" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">лекц. АВД 1-101 Кисіль Т.М.
+        </td>
+    </tr>
+    <tr>
+        <td class="pair" align="center" rowspan="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td class="pair not-mine" align="center" rowspan="1">пр. АВД 1-101 Кисіль Т.М.</td>
+        <td class="pair" align="center" rowspan="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td class="pair" align="center" rowspan="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td class="pair" align="center" rowspan="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td class="pair not-mine" align="center" rowspan="1">пр. АВД 1-101 Кисіль Т.М.</td>
+    </tr>
+    <tr>
+        <td class="pair" rowspan="2"> Вт</td>
+        <td class="pair" rowspan="2">2</td>
+        <td class="pair" align="center" colspan="3" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">лекц. Методологія забезпечення
+            безпеки та захисту комп"ютерних систем 1-210 Савенко О.С.
+        </td>
+        <td class="pair" align="center" colspan="3" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">лекц. Методологія забезпечення
+            безпеки та захисту комп"ютерних систем 1-210 Савенко О.С.
+        </td>
+    </tr>
+    <tr>
+        <td class="pair" align="center" colspan="3" rowspan="1">пр. Теорія,
+            проєктування та моделювання спеціалізованих комп'ютерних систем 1-204
+            Нічепорук А.О.
+        </td>
+        <td class="pair" align="center" colspan="3" rowspan="1">пр. Теорія,
+            проєктування та моделювання спеціалізованих комп'ютерних систем 1-204
+            Нічепорук А.О.
+        </td>
+    </tr>
+    <tr>
+        <td class="pair" rowspan="2"> Вт</td>
+        <td class="pair" rowspan="2">3</td>
+        <td class="pair" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td class="pair" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td class="pair not-mine" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">лаб. Проєктування інтерфейсів
+            користувача програмних систем 1-208 Кузьмін А.А.
+        </td>
+        <td class="pair" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td class="pair not-mine" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">лаб. Проєктування інтерфейсів
+            користувача програмних систем 1-208 Кузьмін А.А.
+        </td>
+        <td class="pair" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+    </tr>
+    <tr>
+        <td class="pair" align="center" colspan="3" rowspan="1">лекц. Організація та
+            управління бізнес-проектами в галузі інформаційних технологій 1-107
+            Говорущенко Т.О.
+        </td>
+        <td class="pair" align="center" colspan="3" rowspan="1">лекц. Організація та
+            управління бізнес-проектами в галузі інформаційних технологій 1-107
+            Говорущенко Т.О.
+        </td>
+    </tr>
+    <tr>
+        <td class="pair" rowspan="2"> Вт</td>
+        <td class="pair" rowspan="2">4</td>
+        <td class="pair" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td class="pair" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td class="pair not-mine" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">лаб. Проєктування інтерфейсів
+            користувача програмних систем 1-208 Кузьмін А.А.
+        </td>
+        <td class="pair" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td class="pair not-mine" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">лаб. Проєктування інтерфейсів
+            користувача програмних систем 1-208 Кузьмін А.А.
+        </td>
+        <td class="pair" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+    </tr>
+    <tr>
+        <td class="pair" align="center" colspan="3" rowspan="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td class="pair" align="center" colspan="3" rowspan="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr style="height:1px">
+        <td class="pair" style="height:1px; background-color: #000000;"
+            colspan="8"></td>
+    </tr>
+    <tr>
+        <td class="pair" rowspan="2"> Ср</td>
+        <td class="pair" rowspan="2">1</td>
+        <td class="pair" align="center" colspan="3" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td class="pair" align="center" colspan="3" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+    </tr>
+    <tr>
+        <td class="pair" align="center" rowspan="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td class="pair" align="center" rowspan="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td class="pair not-mine" align="center" rowspan="1">лекц. Проєктування інтерфейсів
+            користувача програмних систем 1-107 Павлова О.О.
+        </td>
+        <td class="pair" align="center" rowspan="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td class="pair not-mine" align="center" rowspan="1">лекц. Проєктування інтерфейсів
+            користувача програмних систем 1-107 Павлова О.О.
+        </td>
+        <td class="pair" align="center" rowspan="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="pair" rowspan="2"> Ср</td>
+        <td class="pair" rowspan="2">2</td>
+        <td class="pair" align="center" colspan="3" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td class="pair" align="center" colspan="3" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+    </tr>
+    <tr>
+        <td class="pair" align="center" rowspan="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td class="pair" align="center" rowspan="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td class="pair not-mine" align="center" rowspan="1">пр. Проєктування інтерфейсів
+            користувача програмних систем 1-107 Атаманюк О.В.
+        </td>
+        <td class="pair" align="center" rowspan="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td class="pair not-mine" align="center" rowspan="1">пр. Проєктування інтерфейсів
+            користувача програмних систем 1-107 Атаманюк О.В.
+        </td>
+        <td class="pair" align="center" rowspan="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="pair" rowspan="2"> Ср</td>
+        <td class="pair" rowspan="2">3</td>
+        <td class="pair" align="center" colspan="3" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td class="pair" align="center" colspan="3" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">пр. Організація та управління
+            бізнес-проектами в галузі інформаційних технологій 1-107 Войчур Ю.О.
+        </td>
+    </tr>
+    <tr>
+        <td class="pair" align="center" colspan="3" rowspan="1">пр. Організація та
+            управління бізнес-проектами в галузі інформаційних технологій 1-107
+            Войчур Ю.О.
+        </td>
+        <td class="pair" align="center" colspan="3" rowspan="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="pair" rowspan="2"> Ср</td>
+        <td class="pair" rowspan="2">4</td>
+        <td class="pair" colspan="3" rowspan="2">&nbsp;</td>
+        <td class="pair" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td class="pair not-mine" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">лаб. Техн. блокчейн в ІТ 3-302
+            Пасічник О.А.
+        </td>
+        <td class="pair" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+    </tr>
+    <tr>
+        <td class="pair" align="center" colspan="3" rowspan="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="pair" rowspan="2"> Ср</td>
+        <td class="pair" rowspan="2">5</td>
+        <td class="pair" align="center" colspan="3" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td class="pair" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td class="pair not-mine" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">лаб. Техн. блокчейн в ІТ 3-302
+            Пасічник О.А.
+        </td>
+        <td class="pair" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+    </tr>
+    <tr>
+        <td class="pair" style="cellSpacing:0; cellPadding:0;" align="center"
+            colspan="3" rowspan="1" height="100%">
+            <table class="innerTab">
+                <tbody>
+                <tr>
+                    <td class="pairS" align="center"
+                        style="border-right-color: 000000">лаб. Теорія, проєктування
+                        та моделювання спеціалізованих комп'ютерних систем 1-208
+                        Лисенко С.М.
+                    </td>
+                    <td class="pairS" align="center">лаб. Теорія, проєктування та
+                        моделювання спеціалізованих комп'ютерних систем 1-208
+                        Бохонько О.О.
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="pair" align="center" colspan="3" rowspan="1">лаб. Теорія,
+            проєктування та моделювання спеціалізованих комп'ютерних систем 1-208
+            Лисенко С.М.
+        </td>
+    </tr>
+    <tr style="height:1px">
+        <td class="pair" style="height:1px; background-color: #000000;"
+            colspan="8"></td>
+    </tr>
+    <tr>
+        <td class="pair" rowspan="2"> Чт</td>
+        <td class="pair" rowspan="2">6</td>
+        <td class="pair" align="center" colspan="3" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td class="pair" align="center" colspan="3" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+    </tr>
+    <tr>
+        <td class="pair" style="cellSpacing:0; cellPadding:0;" align="center"
+            colspan="3" rowspan="1" height="100%">
+            <table class="innerTab">
+                <tbody>
+                <tr>
+                    <td class="pairS" align="center"
+                        style="border-right-color: 000000">лаб. Методологія
+                        забезпечення безпеки та захисту комп"ютерних систем 1-205
+                        Козельський О.В.
+                    </td>
+                    <td class="pairS" align="center">лаб. Методологія забезпечення
+                        безпеки та захисту комп"ютерних систем 1-108 Капустян М.В.
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="pair" align="center" colspan="3" rowspan="1">лаб. Методологія
+            забезпечення безпеки та захисту комп"ютерних систем 1-108 Капустян М.В.
+        </td>
+    </tr>
+    <tr>
+        <td class="pair" rowspan="2"> Чт</td>
+        <td class="pair" rowspan="2">7</td>
+        <td class="pair" align="center" colspan="3" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td class="pair" align="center" colspan="3" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+    </tr>
+    <tr>
+        <td class="pair" style="cellSpacing:0; cellPadding:0;" align="center"
+            colspan="3" rowspan="1" height="100%">
+            <table class="innerTab">
+                <tbody>
+                <tr>
+                    <td class="pairS" align="center"
+                        style="border-right-color: 000000">лаб. Методологія
+                        забезпечення безпеки та захисту комп"ютерних систем 1-205
+                        Козельський О.В.
+                    </td>
+                    <td class="pairS" align="center">лаб. Методологія забезпечення
+                        безпеки та захисту комп"ютерних систем 1-108 Капустян М.В.
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="pair" align="center" colspan="3" rowspan="1">лаб. Методологія
+            забезпечення безпеки та захисту комп"ютерних систем 1-108 Капустян М.В.
+        </td>
+    </tr>
+    <tr style="height:1px">
+        <td class="pair" style="height:1px; background-color: #000000;"
+            colspan="8"></td>
+    </tr>
+    <tr>
+        <td class="pair" rowspan="2"> Сб</td>
+        <td class="pair" rowspan="2">2</td>
+        <td class="pair" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td class="pair not-mine" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">лаб. АВД 1-108 Кисіль В.В.
+        </td>
+        <td class="pair" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td class="pair" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td class="pair" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td class="pair not-mine" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">лаб. АВД 1-108 Кисіль В.В.
+        </td>
+    </tr>
+    <tr>
+        <td class="pair" align="center" colspan="3" rowspan="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td class="pair" align="center" colspan="3" rowspan="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="pair" rowspan="2"> Сб</td>
+        <td class="pair" rowspan="2">3</td>
+        <td class="pair" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td class="pair not-mine" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">лаб. АВД 1-108 Кисіль В.В.
+        </td>
+        <td class="pair" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td class="pair" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td class="pair" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td class="pair not-mine" align="center" rowspan="1"
+            style="border-bottom-color: #a1a1a1;">лаб. АВД 1-108 Кисіль В.В.
+        </td>
+    </tr>
+    <tr>
+        <td class="pair" align="center" colspan="3" rowspan="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td class="pair" align="center" colspan="3" rowspan="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr style="height:1px">
+        <td class="pair" style="height:1px; background-color: #000000;"
+            colspan="8"></td>
+    </tr>
+
+    </tbody>
+</table>
+<div class="no-print"><br>
+    <table border="1" class="schedTab">
+        <thead>
+        <tr>
+            <th>Дата</th>
+            <th>За розкладом</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>04.09.2026</td>
+            <td><span style="color:green">понеділка, чисельник</span></td>
+        </tr>
+        <tr>
+            <td>11.09.2026</td>
+            <td><span style="color:green">вівторка, чисельник</span></td>
+        </tr>
+        <tr>
+            <td>18.09.2026</td>
+            <td><span style="color:green">середи, чисельник</span></td>
+        </tr>
+        <tr>
+            <td>25.09.2026</td>
+            <td><span style="color:green">четверга, чисельник</span></td>
+        </tr>
+        <tr>
+            <td>02.10.2026</td>
+            <td><span style="color:blue">понеділка, знаменник</span></td>
+        </tr>
+        <tr>
+            <td>09.10.2026</td>
+            <td><span style="color:blue">вівторка, знаменник</span></td>
+        </tr>
+        <tr>
+            <td>16.10.2026</td>
+            <td><span style="color:blue">середи, знаменник</span></td>
+        </tr>
+        <tr>
+            <td>23.10.2026</td>
+            <td><span style="color:blue">четверга, знаменник</span></td>
+        </tr>
+        <tr>
+            <td>30.10.2026</td>
+            <td><span style="color:green">понеділка, чисельник</span></td>
+        </tr>
+        <tr>
+            <td>06.11.2026</td>
+            <td><span style="color:green">вівторка, чисельник</span></td>
+        </tr>
+        <tr>
+            <td>13.11.2026</td>
+            <td><span style="color:green">середи, чисельник</span></td>
+        </tr>
+        <tr>
+            <td>20.11.2026</td>
+            <td><span style="color:green">четверга, чисельник</span></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div>
+        <div>1. 08:00–09:20</div>
+        <div>2. 09:35–10:55</div>
+        <div>3. 11:10–12:30</div>
+        <div>4. 13:00–14:20</div>
+        <div>5. 14:35–15:55</div>
+        <div>6. 16:10–17:30</div>
+        <div>7. 17:45–19:05</div>
+        <div>8. 19:10–20:30</div>
+    </div>
+
+</div>
+<script>
+  (function () {
+    const schedule = document.getElementById('schedule');
+    const rows = Array.from(schedule.tBodies[0].children)
+      .filter((element) => element.tagName === 'TR');
+    const pairs = [];
+
+    // The first two rows are table headers. Every following class slot uses
+    // two rows: numerator first and denominator second. One-cell rows divide days.
+    for (let index = 2; index < rows.length; index += 1) {
+      const numerator = rows[index];
+      const firstCell = numerator.cells[0];
+
+      if (!firstCell || firstCell.rowSpan !== 2 || index + 1 >= rows.length) {
+        continue;
+      }
+
+      const denominator = rows[index + 1];
+      const numeratorCells = Array.from(numerator.children);
+      const denominatorCells = Array.from(denominator.children);
+      const sharedCells = [];
+      const occupiedColumns = new Set();
+      let numeratorColumn = 0;
+
+      numeratorCells.forEach((cell) => {
+        const colspan = cell.colSpan || 1;
+
+        if (cell.rowSpan === 2) {
+          sharedCells.push({ cell, column: numeratorColumn });
+          for (let offset = 0; offset < colspan; offset += 1) {
+            occupiedColumns.add(numeratorColumn + offset);
+          }
+        }
+
+        numeratorColumn += colspan;
+      });
+
+      let denominatorColumn = 0;
+      const placedDenominatorCells = denominatorCells.map((cell) => {
+        while (occupiedColumns.has(denominatorColumn)) {
+          denominatorColumn += 1;
+        }
+
+        const placedCell = { cell, column: denominatorColumn };
+        denominatorColumn += cell.colSpan || 1;
+        return placedCell;
+      });
+
+      numerator.dataset.week = 'numerator';
+      denominator.dataset.week = 'denominator';
+      pairs.push({
+        numerator,
+        denominator,
+        numeratorCells,
+        denominatorCells,
+        sharedCells,
+        placedDenominatorCells
+      });
+      index += 1;
+    }
+
+    function restoreRows(pair) {
+      pair.numeratorCells.forEach((cell) => pair.numerator.appendChild(cell));
+      pair.denominatorCells.forEach((cell) => pair.denominator.appendChild(cell));
+      pair.sharedCells.forEach(({ cell }) => {
+        cell.rowSpan = 2;
+      });
+    }
+
+    function filterSchedule(week) {
+      pairs.forEach((pair) => {
+        restoreRows(pair);
+        pair.numerator.hidden = false;
+        pair.denominator.hidden = false;
+
+        if (week === 'numerator') {
+          pair.sharedCells.forEach(({ cell }) => {
+            cell.rowSpan = 1;
+          });
+          pair.denominator.hidden = true;
+        } else if (week === 'denominator') {
+          const denominatorRowCells = pair.sharedCells
+            .concat(pair.placedDenominatorCells)
+            .sort((left, right) => left.column - right.column);
+
+          denominatorRowCells.forEach(({ cell }) => {
+            cell.rowSpan = 1;
+            pair.denominator.appendChild(cell);
+          });
+          pair.numerator.hidden = true;
+        }
+      });
+    }
+
+    document.querySelectorAll('input[name="week"]').forEach((radio) => {
+      radio.addEventListener('change', (event) => {
+        filterSchedule(event.target.value);
+      });
+    });
+
+    filterSchedule(document.querySelector('input[name="week"]:checked').value);
+  }());
+</script>
+</body>
+</html>
