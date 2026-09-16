@@ -74,8 +74,18 @@
 
       .not-mine {
         /*background-color: #ffc107;*/
-        /*color: #818182;*/
-        /*background-color: #d6d8d9;*/
+        color: #818182;
+        background-color: #d6d8d9;
+      }
+
+      #schedule[data-week-filter="all"] tr[data-week="numerator"] > .pair:not([rowspan="2"]) {
+        border-bottom-width: 2px;
+        border-bottom-color: #add8e6 !important;
+      }
+
+      #schedule:not([data-week-filter="all"]) tr[data-week="numerator"] > .pair:not([rowspan="2"]) {
+        border-bottom-width: 2px;
+        border-bottom-color: #000000 !important;
       }
 
       .filters {
@@ -916,6 +926,8 @@
     }
 
     function filterSchedule(week) {
+      schedule.dataset.weekFilter = week;
+
       pairs.forEach((pair) => {
         restoreRows(pair);
         pair.numerator.hidden = false;
