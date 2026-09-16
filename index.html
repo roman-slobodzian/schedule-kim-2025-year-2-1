@@ -74,26 +74,33 @@
 
       .not-mine {
         /*background-color: #ffc107;*/
-        color: #818182;
-        background-color: #d6d8d9;
+        /*color: #818182;*/
+        /*background-color: #d6d8d9;*/
       }
 
-      .week-filter {
+      .filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: flex-start;
+        margin-bottom: 12px;
+      }
+
+      .filter {
         display: inline-flex;
         gap: 14px;
         align-items: center;
-        margin-bottom: 12px;
         padding: 8px 12px;
         border: 1px solid #818182;
       }
 
-      .week-filter legend {
+      .filter legend {
         padding: 0 4px;
         font-weight: bold;
       }
 
-      .week-filter label,
-      .week-filter input {
+      .filter label,
+      .filter input {
         cursor: pointer;
       }
 
@@ -108,12 +115,20 @@
 </head>
 <body data-new-gr-c-s-check-loaded="14.1327.0" data-gr-ext-installed="" style="">
 
-<fieldset class="week-filter no-print">
-    <legend>Week</legend>
-    <label><input type="radio" name="week" value="all" checked> All</label>
-    <label><input type="radio" name="week" value="numerator"> Numerator</label>
-    <label><input type="radio" name="week" value="denominator"> Denominator</label>
-</fieldset>
+<div class="filters no-print">
+    <fieldset class="filter week-filter">
+        <legend data-i18n="week">Тиждень</legend>
+        <label><input type="radio" name="week" value="all" checked> <span data-i18n="all">Усі</span></label>
+        <label><input type="radio" name="week" value="numerator"> <span data-i18n="numerator">Чисельник</span></label>
+        <label><input type="radio" name="week" value="denominator"> <span data-i18n="denominator">Знаменник</span></label>
+    </fieldset>
+
+    <fieldset class="filter language-filter">
+        <legend data-i18n="language">Мова</legend>
+        <label><input type="radio" name="language" value="uk" checked> UA</label>
+        <label><input type="radio" name="language" value="en"> EN</label>
+    </fieldset>
+</div>
 
 <table id="schedule" border="1" cellspacing="0" cellpadding="2" class="schedTab">
     <tbody>
@@ -327,11 +342,11 @@
         <td class="pair" rowspan="2">2</td>
         <td class="pair" align="center" colspan="3" rowspan="1"
             style="border-bottom-color: #a1a1a1;">лекц. Методологія забезпечення
-            безпеки та захисту комп"ютерних систем 1-210 Савенко О.С.
+            безпеки та захисту комп'ютерних систем 1-210 Савенко О.С.
         </td>
         <td class="pair" align="center" colspan="3" rowspan="1"
             style="border-bottom-color: #a1a1a1;">лекц. Методологія забезпечення
-            безпеки та захисту комп"ютерних систем 1-210 Савенко О.С.
+            безпеки та захисту комп'ютерних систем 1-210 Савенко О.С.
         </td>
     </tr>
     <tr>
@@ -553,18 +568,18 @@
                 <tr>
                     <td class="pairS" align="center"
                         style="border-right-color: 000000">лаб. Методологія
-                        забезпечення безпеки та захисту комп"ютерних систем 1-205
+                        забезпечення безпеки та захисту комп'ютерних систем 1-205
                         Козельський О.В.
                     </td>
                     <td class="pairS" align="center">лаб. Методологія забезпечення
-                        безпеки та захисту комп"ютерних систем 1-108 Капустян М.В.
+                        безпеки та захисту комп'ютерних систем 1-108 Капустян М.В.
                     </td>
                 </tr>
                 </tbody>
             </table>
         </td>
         <td class="pair" align="center" colspan="3" rowspan="1">лаб. Методологія
-            забезпечення безпеки та захисту комп"ютерних систем 1-108 Капустян М.В.
+            забезпечення безпеки та захисту комп'ютерних систем 1-108 Капустян М.В.
         </td>
     </tr>
     <tr>
@@ -585,18 +600,18 @@
                 <tr>
                     <td class="pairS" align="center"
                         style="border-right-color: 000000">лаб. Методологія
-                        забезпечення безпеки та захисту комп"ютерних систем 1-205
+                        забезпечення безпеки та захисту комп'ютерних систем 1-205
                         Козельський О.В.
                     </td>
                     <td class="pairS" align="center">лаб. Методологія забезпечення
-                        безпеки та захисту комп"ютерних систем 1-108 Капустян М.В.
+                        безпеки та захисту комп'ютерних систем 1-108 Капустян М.В.
                     </td>
                 </tr>
                 </tbody>
             </table>
         </td>
         <td class="pair" align="center" colspan="3" rowspan="1">лаб. Методологія
-            забезпечення безпеки та захисту комп"ютерних систем 1-108 Капустян М.В.
+            забезпечення безпеки та захисту комп'ютерних систем 1-108 Капустян М.В.
         </td>
     </tr>
     <tr style="height:1px">
@@ -662,7 +677,7 @@
 
     </tbody>
 </table>
-<div class="no-print"><br>
+<div class="schedule-details no-print"><br>
     <table border="1" class="schedTab">
         <thead>
         <tr>
@@ -736,6 +751,103 @@
 </div>
 <script>
   (function () {
+    const uiTranslations = {
+      uk: {
+        title: 'Розклад',
+        week: 'Тиждень',
+        all: 'Усі',
+        numerator: 'Чисельник',
+        denominator: 'Знаменник',
+        language: 'Мова'
+      },
+      en: {
+        title: 'Schedule',
+        week: 'Week',
+        all: 'All',
+        numerator: 'Numerator',
+        denominator: 'Denominator',
+        language: 'Language'
+      }
+    };
+    const scheduleTranslations = new Map([
+      ['КІм-25-1', 'KIm-25-1'],
+      ['КІм-25-2', 'KIm-25-2'],
+      ['З 01.09.2026 по 20.12.2026', 'From 01.09.2026 to 20.12.2026'],
+      ['а', 'a'],
+      ['к', 'k'],
+      ['б', 'b'],
+      ['Пн', 'Mon'],
+      ['Вт', 'Tue'],
+      ['Ср', 'Wed'],
+      ['Чт', 'Thu'],
+      ['Сб', 'Sat'],
+      ["лекц. Теорія, проєктування та моделювання спеціалізованих комп'ютерних систем 1-107 Нічепорук А.О.", 'Lec. Theory, Design and Modeling of Specialized Computer Systems 1-107 Nicheporuk A.O.'],
+      ["лаб. Напрямки досліджень і розвитку комп'ютерної інженерії 1-206 Козельський О.В.", 'Lab. Research and Development Trends in Computer Engineering 1-206 Kozelskyi O.V.'],
+      ["лаб. Напрямки досліджень і розвитку комп'ютерної інженерії 1-208 Лисенко С.М.", 'Lab. Research and Development Trends in Computer Engineering 1-208 Lysenko S.M.'],
+      ["лекц. Напрямки досліджень і розвитку комп'ютерної інженерії 1-204 Лисенко С.М.", 'Lec. Research and Development Trends in Computer Engineering 1-204 Lysenko S.M.'],
+      ["пр. Напрямки досліджень і розвитку комп'ютерної інженерії 1-204 Лисенко С.М.", 'Prac. Research and Development Trends in Computer Engineering 1-204 Lysenko S.M.'],
+      ['лекц. Big data analytics 1-107 Кисіль Т.М.', 'Lec. Big Data Analytics 1-107 Kysil T.M.'],
+      ['лаб. Big data analytics 1-106 Кисіль Т.М.', 'Lab. Big Data Analytics 1-106 Kysil T.M.'],
+      ['пр. Big data analytics 1-107 Кисіль Т.М.', 'Prac. Big Data Analytics 1-107 Kysil T.M.'],
+      ['лекц. Техн. блокчейн в ІТ 3-302 Пасічник О.А.', 'Lec. Blockchain Technologies in IT 3-302 Pasichnyk O.A.'],
+      ['лаб. Техн. блокчейн в ІТ 3-302 Пасічник О.А.', 'Lab. Blockchain Technologies in IT 3-302 Pasichnyk O.A.'],
+      ['лекц. АВД 1-101 Кисіль Т.М.', 'Lec. AVD 1-101 Kysil T.M.'],
+      ['пр. АВД 1-101 Кисіль Т.М.', 'Prac. AVD 1-101 Kysil T.M.'],
+      ['лаб. АВД 1-108 Кисіль В.В.', 'Lab. AVD 1-108 Kysil V.V.'],
+      ["лекц. Методологія забезпечення безпеки та захисту комп'ютерних систем 1-210 Савенко О.С.", 'Lec. Methodology for Security and Protection of Computer Systems 1-210 Savenko O.S.'],
+      ["пр. Теорія, проєктування та моделювання спеціалізованих комп'ютерних систем 1-204 Нічепорук А.О.", 'Prac. Theory, Design and Modeling of Specialized Computer Systems 1-204 Nicheporuk A.O.'],
+      ['лаб. Проєктування інтерфейсів користувача програмних систем 1-208 Кузьмін А.А.', 'Lab. User Interface Design for Software Systems 1-208 Kuzmin A.A.'],
+      ['лекц. Організація та управління бізнес-проектами в галузі інформаційних технологій 1-107 Говорущенко Т.О.', 'Lec. Organization and Management of Business Projects in Information Technology 1-107 Hovorushchenko T.O.'],
+      ['лекц. Проєктування інтерфейсів користувача програмних систем 1-107 Павлова О.О.', 'Lec. User Interface Design for Software Systems 1-107 Pavlova O.O.'],
+      ['пр. Проєктування інтерфейсів користувача програмних систем 1-107 Атаманюк О.В.', 'Prac. User Interface Design for Software Systems 1-107 Atamaniuk O.V.'],
+      ['пр. Організація та управління бізнес-проектами в галузі інформаційних технологій 1-107 Войчур Ю.О.', 'Prac. Organization and Management of Business Projects in Information Technology 1-107 Voichur Yu.O.'],
+      ["лаб. Теорія, проєктування та моделювання спеціалізованих комп'ютерних систем 1-208 Лисенко С.М.", 'Lab. Theory, Design and Modeling of Specialized Computer Systems 1-208 Lysenko S.M.'],
+      ["лаб. Теорія, проєктування та моделювання спеціалізованих комп'ютерних систем 1-208 Бохонько О.О.", 'Lab. Theory, Design and Modeling of Specialized Computer Systems 1-208 Bokhonko O.O.'],
+      ["лаб. Методологія забезпечення безпеки та захисту комп'ютерних систем 1-205 Козельський О.В.", 'Lab. Methodology for Security and Protection of Computer Systems 1-205 Kozelskyi O.V.'],
+      ["лаб. Методологія забезпечення безпеки та захисту комп'ютерних систем 1-108 Капустян М.В.", 'Lab. Methodology for Security and Protection of Computer Systems 1-108 Kapustian M.V.'],
+      ['Дата', 'Date'],
+      ['За розкладом', 'Following the schedule for'],
+      ['понеділка, чисельник', 'Monday, numerator'],
+      ['вівторка, чисельник', 'Tuesday, numerator'],
+      ['середи, чисельник', 'Wednesday, numerator'],
+      ['четверга, чисельник', 'Thursday, numerator'],
+      ['понеділка, знаменник', 'Monday, denominator'],
+      ['вівторка, знаменник', 'Tuesday, denominator'],
+      ['середи, знаменник', 'Wednesday, denominator'],
+      ['четверга, знаменник', 'Thursday, denominator']
+    ]);
+
+    const normalizeText = (text) => text.replace(/\s+/g, ' ').trim();
+    const translatedTextNodes = [];
+
+    document.querySelectorAll('#schedule, .schedule-details').forEach((container) => {
+      const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT);
+      let node = walker.nextNode();
+
+      while (node) {
+        const translation = scheduleTranslations.get(normalizeText(node.nodeValue));
+
+        if (translation) {
+          translatedTextNodes.push({ node, uk: node.nodeValue, en: translation });
+        }
+
+        node = walker.nextNode();
+      }
+    });
+
+    function setLanguage(language) {
+      document.documentElement.lang = language;
+      document.title = uiTranslations[language].title;
+
+      document.querySelectorAll('[data-i18n]').forEach((element) => {
+        element.textContent = uiTranslations[language][element.dataset.i18n];
+      });
+
+      translatedTextNodes.forEach((text) => {
+        text.node.nodeValue = language === 'en' ? text.en : text.uk;
+      });
+    }
+
     const schedule = document.getElementById('schedule');
     const rows = Array.from(schedule.tBodies[0].children)
       .filter((element) => element.tagName === 'TR');
@@ -834,7 +946,14 @@
       });
     });
 
+    document.querySelectorAll('input[name="language"]').forEach((radio) => {
+      radio.addEventListener('change', (event) => {
+        setLanguage(event.target.value);
+      });
+    });
+
     filterSchedule(document.querySelector('input[name="week"]:checked').value);
+    setLanguage(document.querySelector('input[name="language"]:checked').value);
   }());
 </script>
 </body>
