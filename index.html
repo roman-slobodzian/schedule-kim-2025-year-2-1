@@ -133,6 +133,13 @@
         <label><input type="radio" name="week" value="denominator"> <span data-i18n="denominator">Знаменник</span></label>
     </fieldset>
 
+    <fieldset class="filter group-filter">
+        <legend data-i18n="group">Група</legend>
+        <label><input type="radio" name="group" value="kim-25-1"> <span data-i18n="groupOne">КІм-25-1</span></label>
+        <label><input type="radio" name="group" value="kim-25-2" checked> <span data-i18n="groupTwo">КІм-25-2</span></label>
+        <label><input type="radio" name="group" value="both"> <span data-i18n="both">Обидві</span></label>
+    </fieldset>
+
     <fieldset class="filter language-filter">
         <legend data-i18n="language">Мова</legend>
         <label><input type="radio" name="language" value="uk" checked> UA</label>
@@ -768,6 +775,10 @@
         all: 'Усі',
         numerator: 'Чисельник',
         denominator: 'Знаменник',
+        group: 'Група',
+        groupOne: 'КІм-25-1',
+        groupTwo: 'КІм-25-2',
+        both: 'Обидві',
         language: 'Мова'
       },
       en: {
@@ -776,6 +787,10 @@
         all: 'All',
         numerator: 'Numerator',
         denominator: 'Denominator',
+        group: 'Group',
+        groupOne: 'KIm-25-1',
+        groupTwo: 'KIm-25-2',
+        both: 'Both',
         language: 'Language'
       }
     };
@@ -861,7 +876,39 @@
     const schedule = document.getElementById('schedule');
     const rows = Array.from(schedule.tBodies[0].children)
       .filter((element) => element.tagName === 'TR');
+    const cellLayouts = new Map();
+    const occupiedUntilRow = [];
     const pairs = [];
+
+    // Record each cell's original position in the eight-column grid. Tracking
+    // occupied columns from preceding rowspans makes the positions reliable for
+    // both the two-row class slots and the two-row table header.
+    rows.forEach((row, rowIndex) => {
+      let column = 0;
+
+      Array.from(row.children)
+        .filter((element) => element.matches('td, th'))
+        .forEach((cell) => {
+          while ((occupiedUntilRow[column] || 0) > rowIndex) {
+            column += 1;
+          }
+
+          const colSpan = cell.colSpan || 1;
+          const rowSpan = cell.rowSpan || 1;
+          cellLayouts.set(cell, { column, colSpan });
+
+          if (rowSpan > 1) {
+            for (let offset = 0; offset < colSpan; offset += 1) {
+              occupiedUntilRow[column + offset] = Math.max(
+                occupiedUntilRow[column + offset] || 0,
+                rowIndex + rowSpan
+              );
+            }
+          }
+
+          column += colSpan;
+        });
+    });
 
     // The first two rows are table headers. Every following class slot uses
     // two rows: numerator first and denominator second. One-cell rows divide days.
@@ -952,10 +999,40 @@
       });
     }
 
-    document.querySelectorAll('input[name="week"]').forEach((radio) => {
-      radio.addEventListener('change', (event) => {
-        filterSchedule(event.target.value);
+    function filterGroup(group) {
+      schedule.dataset.groupFilter = group;
+      const visibleColumns = group === 'both'
+        ? null
+        : new Set(group === 'kim-25-1' ? [0, 1, 2, 3, 4] : [0, 1, 5, 6, 7]);
+
+      cellLayouts.forEach(({ column, colSpan }, cell) => {
+        let visibleColSpan = colSpan;
+
+        if (visibleColumns) {
+          visibleColSpan = 0;
+          for (let offset = 0; offset < colSpan; offset += 1) {
+            if (visibleColumns.has(column + offset)) {
+              visibleColSpan += 1;
+            }
+          }
+        }
+
+        cell.hidden = visibleColSpan === 0;
+        cell.colSpan = visibleColSpan || colSpan;
       });
+    }
+
+    function applyScheduleFilters() {
+      filterSchedule(document.querySelector('input[name="week"]:checked').value);
+      filterGroup(document.querySelector('input[name="group"]:checked').value);
+    }
+
+    document.querySelectorAll('input[name="week"]').forEach((radio) => {
+      radio.addEventListener('change', applyScheduleFilters);
+    });
+
+    document.querySelectorAll('input[name="group"]').forEach((radio) => {
+      radio.addEventListener('change', applyScheduleFilters);
     });
 
     document.querySelectorAll('input[name="language"]').forEach((radio) => {
@@ -964,7 +1041,7 @@
       });
     });
 
-    filterSchedule(document.querySelector('input[name="week"]:checked').value);
+    applyScheduleFilters();
     setLanguage(document.querySelector('input[name="language"]:checked').value);
   }());
 </script>
